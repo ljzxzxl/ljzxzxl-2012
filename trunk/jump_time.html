@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>time</title>
+<script>
+var i=300;
+var t;
+function showTimer(){
+    if(i==0){
+        // 如果秒数为 0 的话，清楚 t ，防止一直调用函数，对于反应慢的机器可能实现不了跳转到 www.baidu.com 的效果，所以要清楚掉 setInterval()
+        window.location.href="http://www.baidu.com";
+        window.clearInterval(t);
+    }else{
+        i = i - 1 ;
+        // 秒数转换成时间并插入 timer 层中
+		d=parseInt(i/86400);
+		h=parseInt((i%86400)/3600);
+		m=parseInt((i%3600)/60);
+		s=i%60;
+        document.getElementById("timer").innerHTML= d+"天 "+h+"小时 "+m+"分钟 "+s+"秒";
+    }
+}
+// 每隔一秒钟调用一次函数 showTimer()
+t = window.setInterval(showTimer,1000);
+</script>
+</head>
+<body onload = "showTimer()">
+<div id ="timer"></div>
+</body>
+</html>
