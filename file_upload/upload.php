@@ -37,38 +37,51 @@ exit;
 
 }
 
+if($_FILES['upload_file']['name']){
 Echo  "<p>你上传了文件:";
 echo $_FILES['upload_file']['name'];
 echo "<br>";
 //客户端机器文件的原名称。 
+}
 
+if($_FILES['upload_file']['type']){
 Echo  "文件的 MIME 类型为:";
 echo $_FILES['upload_file']['type'];
 //文件的 MIME 类型，需要浏览器提供该信息的支持，例如“image/gif”。 
 echo "<br>";
+}
 
+if($_FILES['upload_file']['size']){
 Echo  "上传文件大小:";
 echo $_FILES['upload_file']['size'];
 //已上传文件的大小，单位为字节。 
 echo "<br>";
+}
 
+if($_FILES['upload_file']['tmp_name']){
 Echo  "文件上传后被临时储存为:";
 echo $_FILES['upload_file']['tmp_name'];
 //文件被上传后在服务端储存的临时文件名。 
 echo "<br>";
+}
 
 
 $Erroe=$_FILES['upload_file']['error'];
 switch($Erroe){
     case 0:
-      Echo  "上传成功"; break;
+      if($_FILES['upload_file']['name']){
+      Echo  "上传成功，文件位置:".$store_dir.$upload_file_name; break;}
     case 1:
-      Echo  "上传的文件超过了 php.ini 中 upload_max_filesize 选项限制的值."; break;
+      if($_FILES['upload_file']['name']){
+      Echo  "上传的文件超过了 php.ini 中 upload_max_filesize 选项限制的值."; break;}
     case 2:
-      Echo  "上传文件的大小超过了 HTML 表单中 MAX_FILE_SIZE 选项指定的值。";  break;
+      if($_FILES['upload_file']['name']){
+      Echo  "上传文件的大小超过了 HTML 表单中 MAX_FILE_SIZE 选项指定的值。";  break;}
     case 3:
-      Echo  "文件只有部分被上传";break;
+      if($_FILES['upload_file']['name']){
+      Echo  "文件只有部分被上传";break;}
     case 4:
-      Echo  "没有文件被上传";break;
+      if($_FILES['upload_file']['name']){
+      Echo  "没有文件被上传";break;}
 }
 ?>

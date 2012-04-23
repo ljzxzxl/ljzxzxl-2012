@@ -69,4 +69,14 @@ $array = array
 echo $json = JSON($array);
 echo "<br/>";
 print_r(json_decode($json, true));
+
+$str = '{
+	"costTime":25,
+	"msg":"ok",
+	"respcode":0,
+	"result":{"app_id":"200","email":"jia_test@qeeka.com","id":100100025,"last_login_ip":"192.168.94.198","last_login_time":"2012-04-11 22:40:47","login_name":"jia_test","mobile":"15618381258"},
+	"statusCode":"200"
+}';
+echo "<br/>";
+print_r(json_decode($str, true));
 ?>
