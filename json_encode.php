@@ -77,6 +77,9 @@ $str = '{
 	"result":{"app_id":"200","email":"jia_test@qeeka.com","id":100100025,"last_login_ip":"192.168.94.198","last_login_time":"2012-04-11 22:40:47","login_name":"jia_test","mobile":"15618381258"},
 	"statusCode":"200"
 }';
+$str = '{ "Result": "1", "SmsID": "t0fa882c3ded2976162", "ReturnValueList": [ { "ReturnValue": "976" } ] }';
 echo "<br/>";
 print_r(json_decode($str, true));
+$array = json_decode($str, true);
+echo $array['ReturnValueList']['0']['ReturnValue'];
 ?>
