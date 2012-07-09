@@ -8,13 +8,27 @@
   <meta name="Description" content="">
   <link href="./skins/default.css" rel="stylesheet" />
   <script src="./source/artDialog.js"></script>
-  <script type="text/javascript">
-  art.dialog('artDialog: I Love You!', function () {alert('Thank you!')});
-  </script>
+<script type="text/javascript">
+	art.dialog('artDialog: I Love You!', function () {alert('Thank you!')});
+	function test(){
+			art.dialog({
+			title: '欢迎',
+			content: '欢迎使用artDialog对话框组件！',
+			ok: function () {
+				this
+				.title('警告')
+				.content('请注意artDialog两秒后将关闭！')
+				.lock()
+				.time(2000);
+				return false;
+			}
+		});
+	}
+</script>
  </head>
 
  <body>
-  <a class="runCode" href="#lead-demo-1">运行</a>
+  <a class="runCode" href="#" onClick="test()">运行</a>
   <pre class="sh_javascript" id="lead-demo-1">art.dialog('artDialog: I Love You!', function () {alert('Thank you!')});
   </pre>
  </body>
