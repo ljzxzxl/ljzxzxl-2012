@@ -1,5 +1,5 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <title> New Document </title>
   <meta name="Generator" content="EditPlus">
@@ -7,9 +7,9 @@
   <meta name="Keywords" content="">
   <meta name="Description" content="">
   <link href="./skins/default.css" rel="stylesheet" />
-  <script src="./source/artDialog.js"></script>
+  <script src="./source/artDialog.min.js"></script>
+  <script src="./source/jquery-1.4.2.min.js"></script>
 <script type="text/javascript">
-	art.dialog('artDialog: I Love You!', function () {alert('Thank you!')});
 	function test(){
 			art.dialog({
 			title: '欢迎',
@@ -24,11 +24,18 @@
 			}
 		});
 	}
+	$(document).ready(function(){
+			$("#bt").click( function() {
+				art.dialog('artDialog: I Love You!', function () {alert('Thank you!')});
+			});
+		});
 </script>
  </head>
 
  <body>
   <a class="runCode" href="#" onClick="test()">运行</a>
+  <br/>
+  <input id="bt" type="button" name="" value="运行">
   <pre class="sh_javascript" id="lead-demo-1">art.dialog('artDialog: I Love You!', function () {alert('Thank you!')});
   </pre>
  </body>
