@@ -6,17 +6,15 @@
   <meta name="Author" content="">
   <meta name="Keywords" content="">
   <meta name="Description" content="">
-  <link href="./skins/default.css" rel="stylesheet" />
+  <link href="./skins/blue.css" rel="stylesheet" />
   <script src="./source/artDialog.min.js"></script>
   <script src="./source/jquery-1.4.2.min.js"></script>
 <script type="text/javascript">
 	function test(){
 			art.dialog({
-			title: '欢迎',
 			content: '欢迎使用artDialog对话框组件！',
 			ok: function () {
 				this
-				.title('警告')
 				.content('请注意artDialog两秒后将关闭！')
 				.lock()
 				.time(2000);
@@ -26,7 +24,20 @@
 	}
 	$(document).ready(function(){
 			$("#bt").click( function() {
-				art.dialog('artDialog: I Love You!', function () {alert('Thank you!')});
+				art.dialog(
+						{	
+							content:'欢迎你来到对话框世界！',
+							lock:true,
+							style:'succeed noClose',
+							time:1000
+						},
+						function(){
+							alert('你点了确定');
+						},
+						function(){
+							alert('你点了取消');
+						}
+				);
 			});
 		});
 </script>
@@ -36,7 +47,5 @@
   <a class="runCode" href="#" onClick="test()">运行</a>
   <br/>
   <input id="bt" type="button" name="" value="运行">
-  <pre class="sh_javascript" id="lead-demo-1">art.dialog('artDialog: I Love You!', function () {alert('Thank you!')});
-  </pre>
  </body>
 </html>
