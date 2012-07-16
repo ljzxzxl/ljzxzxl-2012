@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Hello World jQuery!</title>
+    <script type="text/javascript" src="jquery-1.3.2.js"></script>
+	<script language="JavaScript">
+	/*Ajax提交筛选数据*/
+	$(document).ready(function(){
+		$("#btnShow").click(function(){
+			alert("request fail");
+			/*提交请求*/
+			$.ajax(
+			{
+				type:"POST",
+				dataType:"html",
+				url:"http://zxapi.jia.com/tender_api.php?api_name=get_tender_joined_shop&mobile=13901211111",
+				success:function(data,status)
+				{
+					$("#divMsg").html(data);
+				},
+				error:function(data){
+					alert("request fail");
+				}
+			 });
+		});
+	});
+	</script>
+</head>
+<body>
+    <div id="divMsg">Hello World!</div>
+    <input id="btnShow" type="button" value="提交" />
+</body>
+</html>
