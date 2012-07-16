@@ -1,0 +1,52 @@
+function sava(){
+
+//去字符串空格
+var inputs = $(":text") ;
+for (i = 0; i < inputs.length; i=i+1) {
+inputs[i].value = myTrim(inputs[i].value);
+}
+
+//通过id进行非空验证
+if($("#blackName").val()==''){
+alert("姓名不能为空，请输入！");
+$("#blackName").focus();
+return false;
+}
+
+//通过id进行非空验证
+if($("#phone").val()==''){
+alert("号码不能为空，请选择！");
+$("#phone").focus();
+return false;
+}
+//用jquery通过名字对select下拉框进行非空验证
+if($("select[name='blackList.status']").val()=='')
+{
+alert("请选择状态！");
+$("select[name='blackList.status']").focus();
+return false;
+}
+//通过脚本根据id进行非空验证
+var cause=document.getElementById("cause");
+if(cause.value==null||cause.value==''){
+alert("请选择黑名单原因！");
+cause.focus();
+return false;
+}
+
+//通过ajax提交form
+$('#form2').ajaxSubmit({
+url:'${ctx}/blackList/black!AddblackList.action', //form提交的路径
+type:'POST',
+dataType:'json',
+success: function(data){
+alert(data.desc);
+if(data.result){
+window.location.href = "${ctx}/blackList/black!Toblacklist.action";//操作成功后要跳转的路径
+}
+},
+error: function(){
+alert("保存失败");//如果提交失败则提示
+}
+}); 
+}
