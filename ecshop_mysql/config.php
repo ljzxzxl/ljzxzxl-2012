@@ -11,12 +11,5 @@ $db_user   = "root";
 // database password
 $db_pass   = "";
 
-// table prefix
-$prefix    = "ecs_";
-
-$timezone    = "UTC";
-
-define('EC_CHARSET','utf-8');
-
 define('IN_ECS', true);
 ?>
