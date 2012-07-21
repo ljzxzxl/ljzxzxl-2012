@@ -13,11 +13,6 @@
  * $Id: cls_mysql.php 17217 2011-01-19 06:29:08Z liubo $
 */
 
-if (!defined('IN_ECS'))
-{
-    die('Hacking attempt');
-}
-
 class cls_mysql
 {
     var $link_id    = NULL;
@@ -387,7 +382,7 @@ class cls_mysql
     {
         if ($message)
         {
-            echo "<b>ECSHOP info</b>: $message\n\n<br /><br />";
+            echo "<b>Message info</b>: $message\n\n<br /><br />";
             //print('<a href="http://faq.comsenz.com/?type=mysql&dberrno=2003&dberror=Can%27t%20connect%20to%20MySQL%20server%20on" target="_blank">http://faq.comsenz.com/</a>');
         }
         else
@@ -618,7 +613,7 @@ class cls_mysql
             {
                 if (array_key_exists($value, $field_values) == true)
                 {
-                    $fields[] = $value;
+                    $fields[] = "`".$value."`";
                     $values[] = "'" . $field_values[$value] . "'";
                 }
             }
@@ -635,7 +630,7 @@ class cls_mysql
             {
                 if (array_key_exists($value, $field_values) == true)
                 {
-                    $sets[] = $value . " = '" . $field_values[$value] . "'";
+                    $sets[] ="`". $value . "` = '" . $field_values[$value] . "'";
                 }
             }
 
