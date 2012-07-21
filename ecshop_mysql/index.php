@@ -67,13 +67,13 @@ function test_autoExecute()
 	$table = "ecs_role";
 	$field_values = array("role_name" => "manager", "role_describe" => "manager room", "action_list" => "all");
 	$db->autoExecute($table, $field_values, "INSERT");
-	// æ‰§è¡Œçš„SQLï¼šINSERT INTO ecs_role (role_name, action_list, role_describe) VALUES ('æ€»ç»ç†åŠž', 'all', 'æ€»ç»ç†åŠž')
+	// Ö´ÐÐµÄSQL£ºINSERT INTO ecs_role (role_name, action_list, role_describe) VALUES ('×Ü¾­Àí°ì', 'all', '×Ü¾­Àí°ì')
 	
-	$role_id = $db->insert_id(); // æ–°è®°å½•çš„IDï¼š5
+	$role_id = $db->insert_id(); // ÐÂ¼ÇÂ¼µÄID£º5
 	
-	$field_values = array("action_list" => "goods_manage");
+	$field_values = array("action_list" => "²âÊÔ");
 	$db->autoExecute($table, $field_values, "UPDATE", "role_id = $role_id");
-	// æ‰§è¡Œçš„SQLï¼šUPDATE ecs_role SET action_list = 'goods_manage' WHERE role_id = 5
+	// Ö´ÐÐµÄSQL£ºUPDATE ecs_role SET action_list = 'goods_manage' WHERE role_id = 5
 	
 	$sql = "SELECT action_list FROM ecs_role WHERE role_id = $role_id";
 	$result = $db->getOne($sql);
