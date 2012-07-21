@@ -10,6 +10,4 @@ $db_user   = "root";
 
 // database password
 $db_pass   = "";
-
-define('IN_ECS', true);
 ?>
