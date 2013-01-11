@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+ </head>
+
+ <body>
+ <script type="text/javascript">
+//判断尺寸和大小
+var img=null;
+function chkimg(obj)
+{
+	//if(img)img.removeNode(true);
+	img=document.createElement("img");
+	img.attachEvent("onreadystatechange",isimg);
+	img.attachEvent("onerror",notimg);
+	img.src=obj.value;
+	return true;
+}
+function notimg()
+{
+	alert("您插入的不是图片，请重新选择插入");
+	return false;
+}
+function isimg()
+{
+	show.insertAdjacentElement("BeforeEnd",img);
+	show1.innerHTML = "图片大小" + img.fileSize/1024 +"K<br />图片宽度"+ img.offsetWidth +"<br />图片高度"+ img.offsetHeight;
+	var imgwidth=img.offsetWidth;
+	var imgheight=img.offsetHeight;
+	if(imgwidth!=68||imgheight!=68)
+	{
+		alert("小图的尺寸应该是68x68");
+		return false;
+	}
+	return true;
+}
+ </script>
+ <div id="show"></div>
+ <div id="show1"></div>
+ <input type="file" id="UpFile_Photo1" runat="server" name="UpFile_Photo1" size="35" onpropertychange="chkimg(this)">小图<br />
+ </body>
+</html>

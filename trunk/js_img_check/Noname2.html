@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE> New Document </TITLE>
+</HEAD>
+<script language="javascript">
+     <!--
+//检查插入是否为图片
+var img=null;
+function chkimg(inp)
+{
+if(img)img.removeNode(true);
+img=document.createElement("img");
+img.attachEvent("onreadystatechange",isimg);
+img.attachEvent("onerror",notimg);
+img.src=inp;
+}
+function notimg()
+{
+alert("您插入的不是图片，请重新选择插入");
+}
+function isimg()
+{
+show.insertAdjacentElement("BeforeEnd",img);
+show1.innerHTML = "图片大小" + img.fileSize/1024 +"K<br />图片宽度"+ img.offsetWidth +"<br />图片高度"+ img.offsetHeight;
+}
+// -->
+</script>
+<BODY>
+<div id="show"></div>
+<div id="show1"></div>
+<input type="file" name="" onpropertychange="chkimg(this.value)"/>
+</BODY>
+</HTML>

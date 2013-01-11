@@ -26,4 +26,10 @@ function get_current_url()
 }
 
 echo get_current_url();
+print_r($_SERVER["QUERY_STRING"]);
+echo "<br/>";
+$pathinfo = pathinfo($_SERVER['PHP_SELF']);
+echo $_SERVER['HTTP_REFERER'];
+$from = $pathinfo['basename'];
+print_r($from);
 ?>
