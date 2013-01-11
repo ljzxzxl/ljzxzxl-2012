@@ -1,11 +1,8 @@
 <?php
 set_time_limit(13600);  //设置时间
 date_default_timezone_set("PRC");
-$conn=mysql_connect('localhost','root','goodlusslulu'); //连接数据库
-mysql_select_db('renren',$conn);
-mysql_query("SET NAMES utf8");
 
-$fp_in = fopen('db.txt', "r");
+$fp_in = fopen('1.txt', "r");
 while (!feof($fp_in)) {
     $line = fgets($fp_in);
     echo date('Y-m-d G:i:s',$line).'<br/>';
