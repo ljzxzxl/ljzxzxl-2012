@@ -5,8 +5,9 @@ $data = array("a"=>"Dog","b"=>"Cat","c"=>"测试");
 //echo "<hr>";
 //echo json_encode($data);
 //echo "<hr>";
-echo JSON($data);
-
+//echo JSON($data);
+$my_file = file_get_contents("test.txt");
+echo $my_file;
 
 /*将数组转换为JSON字符串（兼容中文）*/
 
