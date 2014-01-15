@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>$.ajax()方法发送请求</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    
+    <script type="text/javascript">
+function encodeURIStr(str){ 
+     var regexs = new Array(new RegExp(',', 'g'), 
+                       new RegExp('/', 'g'), 
+                       new RegExp('\?', 'g'), 
+                       new RegExp(':', 'g'), 
+                       new RegExp('@', 'g'), 
+                       new RegExp('&', 'g'), 
+                       new RegExp('=', 'g'), 
+                       new RegExp('\+', 'g'), 
+                       new RegExp('\$', 'g'), 
+                       new RegExp('#', 'g') 
+       ); 
+     var replaces = new Array('%2C','%2F','%3F','%3A','%40','%26','%3D','%2B','%24','%23'); 
+     for (var i = 0; i < regexs.length; i++){ 
+         str = str.replace(regexs[i], replaces[i]); 
+     } 
+     return str; 
+ } 
+        alert(encodeURIStr("http://192.168.1.116:8889/wopi/files/13年12月份大学英语四级报名通知.doc?access_token=9873975592dfdf28d72732ae864896e7"));
+    </script>
+</head>
+<body>
+    <form id="frmUserLogin">
+    <div class="divFrame">
+        <div class="divTitle">
+            <span>用户登录</span>
+        </div>
+        <div class="divContent">
+            <div class="clsShow">
+                <div id="divError" class="clsError">
+                </div>
+                <div>
+                    名称：<input id="txtName" type="text" class="txt" /></div>
+                <div>
+                    密码：<input id="txtPass" type="password" class="txt" /></div>
+                <div>
+                    <input id="btnLogin" type="button" value="登录" class="btn" />&nbsp;&nbsp
+                    <input id="btnReset" type="reset" value="取消" class="btn" />
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
